@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Pablo y Ana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+        /* Declaración de tus fuentes locales */
+        @font-face {
+            font-family: 'Amalfi Coast';
+            src: url('Amalfi Coast.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Black Mango';
+            src: url('black-mango-regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-color: #f4efe2;
+            --primary-green: #4a5d3e;
+            --dark-brown: #3d2d26;
+            --text-color: #5c4d44;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Black Mango', serif;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitation-container {
+            background-color: var(--bg-color);
+            border: 3px solid var(--dark-brown);
+            border-radius: 4px;
+            max-width: 600px;
+            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px dashed var(--dark-brown);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Estilos generales para las imágenes dentro de los contenedores */
+        .illustration-sacra img,
+        .illustration-novios img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contenedor específico para la primera ilustración (Tres figuras sacras) */
+        .illustration-sacra {
+            max-width: 160px;
+            margin: 0 auto 25px auto;
+        }
+
+        /* Contenedor específico para la segunda ilustración (Pareja y guirnalda) */
+        .illustration-novios {
+            max-width: 400px;
+            margin: 0 auto 25px auto;
+        }
+
+        .bible-verse {
+            font-style: Black Mango;
+            font-size: 1.15rem;
+            color: var(--text-color);
+            max-width: 85%;
+            margin: 0 auto 15px auto;
+        }
+
+        .bible-reference {
+            font-family: 'Amalfi Coast', 'Playfair Display', serif;
+            color: var(--primary-green);
+            margin-bottom: 40px;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            width: 80%;
+            height: 1px;
+            background-color: var(--dark-brown);
+            margin: 40px auto;
+            opacity: 0.2;
+        }
+
+        .names {
+            font-family: 'Amalfi Coast', cursive;
+            font-size: 2.7rem;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: normal;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        .date-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            font-family: 'Black Mango', 'Playfair Display', serif;
+        }
+
+        .date-number {
+           font-family: 'Amalfi Coast', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin: 0 24px;
+            line-height: 1;
+        }
+
+        .date-side {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: left;
+            border-left: 1px ;
+            padding-left: 15px;
+            color: var(--text-color);
+            font-family: 'Black Mango', sans-serif;
+        }
+
+        .dash {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            font-weight: 300;
+        }
+
+        /* Estilo unificado para los títulos de las secciones secundarias */
+        .section-title {
+            font-family: 'Black Mango', sans-serif;'
+            font-weight: normal;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dark-brown);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Estilos de la Cuenta Atrás */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto 40px auto;
+            max-width: 400px;
+        }
+
+        .countdown-box {
+            background-color: transparent;
+            border: 1px solid rgba(61, 45, 38, 0.3);
+            border-radius: 4px;
+            padding: 10px;
+            min-width: 75px;
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .countdown-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .location-details {
+            margin-bottom: 25px;
+        }
+
+        .location-details p {
+            margin-bottom: 12px;
+        }
+
+        .venue-name {
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 480px;
+            height: 250px;
+            margin: 0 auto 30px auto;
+            border: 1px solid var(--dark-brown);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Estilos del enlace de alojamiento de Booking */
+        .booking-section {
+            margin: 10px 0 0 0;
+        }
+
+        .booking-btn {
+            display: inline-block;
+            font-family: 'Black Mango', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--bg-color);
+            background-color: var(--primary-green);
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 4px 10px rgba(74, 93, 62, 0.2);
+        }
+
+        .booking-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Estilos del Formulario de Confirmación */
+        .rsvp-form-container {
+            max-width: 480px;
+            margin: 40px auto 10px auto;
+            text-align: left;
+            border-top: 1px solid rgba(61, 45, 38, 0.15);
+            padding-top: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--dark-brown);
+            background-color: transparent;
+            color: var(--text-color);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* Flecha personalizada para los select desplegables */
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '▾';
+            font-size: 1.2rem;
+            top: 8px;
+            right: 15px;
+            position: absolute;
+            color: var(--dark-brown);
+            pointer-events: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 4px rgba(74, 93, 62, 0.2);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            font-family: 'Black Mango', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-green);
+            background-color: transparent;
+            border: 2px solid var(--primary-green);
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            margin-top: 30px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--bg-color);
+        }
+
+        .contacts {
+            display: flex;
+            justify-content: space-around;
+            max-width: 400px;
+            margin: 40px auto 0 auto;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(61, 45, 38, 0.15);
+            padding-top: 30px;
+        }
+
+        .contact-info p:first-child {
+            font-family: 'Black Mango', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-green);
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-container">
+        
+        <div class="illustration-sacra">
+            <img src="Virgen.png" alt="Ilustración Sacra">
+        </div>
+        
+        <p class="bible-verse">"Por lo demás, sabemos que en todas las cosas interviene Dios para bien de los que le aman, de aquellos que han sido llamados según su designio"</p>
+        <p class="bible-reference">Rm 8, 28</p>
+
+        <div class="divider"></div>
+
+        <div class="illustration-novios">
+            <img src="1000044335.png" alt="Ilustración Novios">
+        </div>
+
+        <h1 class="names">Pablo y Ana</h1>
+       
+
+        <p class="intro-text">Tenemos el placer de invitaros<br>a nuestra boda que tendrá lugar el</p>
+
+        <div class="date-box">
+            <span class="dash">—</span>
+            <span class="date-number">15</span>
+            <span class="dash">—</span>
+            <div class="date-side">
+                <strong>DE AGOSTO</strong><br>
+                <strong>A LAS 14 HORAS</strong><br>
+            </div>
+        </div>
+
+       
+
+        <div class="location-details">
+            <p>en la <span class="venue-name">Iglesia de San Pedro Apóstol</span>,<br>Valoria la Buena, Valladolid</p>
+            <p>continuaremos con la celebración<br>en <span class="venue-name">Concejo Bodegas</span></p>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Iglesia San Pedro Apóstol Valoria la Buena &t=&z=14&ie=UTF8&iwloc=B&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+
+         <div class="divider"></div>
+
+
+
+         <!-- Sección de la Cuenta Atrás con clase de título unificada -->
+        <h2 class="section-title">Faltan sólo</h2>
+        <div class="countdown-container" id="countdown">
+            <div class="countdown-box">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-box">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Seg</span>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+    <section id="musica">
+        <!-- Título de sección unificado -->
+        <h2 class="section-title">Nuestra Banda Sonora</h2>
+        <p style="margin-bottom: 1.5rem;">Acompáñanos con la música que marcará nuestro camino. ¡Disfruta de la lista!</p>
+        <iframe 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/playlist/3s0kXNDASIaAtKMybEwmcZ?utm_source=generator" 
+            width="100%" 
+            height="352" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+    </section>
+
+        <div class="divider"></div>
+
+        <!-- Título de sección unificado -->
+        <h2 class="section-title">¿Necesitas hotel?</h2>
+        <div class="booking-section">
+            <a href="https://www.booking.com/searchresults.es.html?ss=Valladolid%2C+Castilla+y+Le%C3%B3n%2C+Espa%C3%B1a&checkin=2026-08-15&checkout=2026-08-16&group_adults=2" class="booking-btn" target="_blank" rel="noopener noreferrer">
+                Ver Hoteles en Valladolid
+            </a>
+        </div>
+
+        <div class="rsvp-form-container">
+            <!-- Título de sección unificado -->
+            <h2 class="section-title">Confirmar Asistencia</h2>
+            <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbyzyKapgSG0emJi8VO_un-BsEDsUULQmPaHTnZ30Xl6KQWJWgXCS2XPHywiJjUVLN69/exec" method="POST">
+                <div class="form-group">
+                    <label for="fullname">Nombre y Apellido</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Tu nombre y apellidos" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">¿Confirmas tu asistencia?</label>
+                    <div class="select-wrapper">
+                        <select id="attendance" name="attendance" required>
+                            <option value="" disabled selected hidden>Selecciona una opción...</option>
+                            <option value="si">Sí, ¡allí estaré!</option>
+                            <option value="no">No, me es imposible</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bus_service">¿Necesitas servicio de autobús?</label>
+                    <div class="select-wrapper">
+                        <select id="bus_service" name="bus_service" required>
+                            <option value="" disabled selected hidden>Selecciona una opción...</option>
+                            <option value="no">No</option>
+                            <option value="si">Sí</option>
+                            <option value="solo_ida">Solo ida</option>
+                            <option value="solo_vuelta">Solo vuelta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Intolerancias o Alergias</label>
+                    <textarea id="allergies" name="allergies" rows="2" placeholder="Ej. Celíaco, alergia a los frutos secos... (Si no tienes, deja en blanco)"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Respuesta</button>
+            </form>
+        </div>
+
+        <div class="contacts">
+            <div class="contact-info">
+                <p>Pablo</p>
+                <p><a href="tel:628886499">628 886 499</a></p>
+            </div>
+            <div class="contact-info">
+                <p>Ana</p>
+                <p><a href="tel:634716326">634 716 326</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Lógica de la Cuenta Atrás (15 de Agosto de 2026 a las 14:00)
+        const targetDate = new Date('August 15, 2026 14:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById('countdown').innerHTML = "<p style='font-family: \"Black Mango\", sans-serif; color: var(--primary-green); font-size: 1.5rem;'>¡Llegó el gran día!</p>";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Lógica de envío del formulario RSVP
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerText;
+            
+            submitBtn.innerText = "ENVIANDO...";
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.result === 'success') {
+                    alert('¡Gracias! Tu respuesta ha sido registrada correctamente.');
+                    form.reset();
+                } else {
+                    alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un problema con la conexión. Inténtalo más tarde.');
+            })
+            .finally(() => {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
