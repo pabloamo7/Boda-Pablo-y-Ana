@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda de Pablo y Ana</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;1,400&family=Playfair+Display:ital,wght=0,400;1,400&display=swap');
 
         /* Declaración de tus fuentes locales */
         @font-face {
@@ -90,7 +90,7 @@
         }
 
         .bible-verse {
-            font-style: Black Mango;
+            font-family: 'Black Mango', serif;
             font-size: 1.15rem;
             color: var(--text-color);
             max-width: 85%;
@@ -137,7 +137,7 @@
         }
 
         .date-number {
-           font-family: 'Amalfi Coast', cursive;
+            font-family: 'Amalfi Coast', cursive;
             font-size: 2.5rem;
             color: var(--primary-green);
             margin: 0 24px;
@@ -163,7 +163,7 @@
 
         /* Estilo unificado para los títulos de las secciones secundarias */
         .section-title {
-            font-family: 'Black Mango', sans-serif;'
+            font-family: 'Black Mango', sans-serif;
             font-weight: normal;
             font-size: 1.4rem;
             text-transform: uppercase;
@@ -239,12 +239,16 @@
             border: 0;
         }
 
-        /* Estilos del enlace de alojamiento de Booking */
-        .booking-section {
+        /* Estilos del enlace de alojamiento de Booking y añadir canciones */
+        .booking-section,
+        .spotify-section,
+        .album-links {
             margin: 10px 0 0 0;
         }
 
-        .booking-btn {
+        .booking-btn,
+        .spotify-btn,
+        .album-btn {
             display: inline-block;
             font-family: 'Black Mango', sans-serif;
             font-size: 1.1rem;
@@ -259,8 +263,19 @@
             box-shadow: 0 4px 10px rgba(74, 93, 62, 0.2);
         }
 
-        .booking-btn:hover {
+        .booking-btn:hover,
+        .spotify-btn:hover,
+        .album-btn:hover {
             opacity: 0.9;
+        }
+
+        /* Estilos específicos para la sección de Álbum Fotográfico */
+        .album-subsection {
+            margin-bottom: 30px;
+        }
+
+        .album-subsection p {
+            margin-bottom: 10px;
         }
 
         /* Estilos del Formulario de Confirmación */
@@ -381,11 +396,14 @@
         <div class="divider"></div>
 
         <div class="illustration-novios">
-            <img src="1000044335.png" alt="Ilustración Novios">
+            <img src="novios.png" alt="Ilustración Novios">
         </div>
 
         <h1 class="names">Pablo y Ana</h1>
+        
        
+
+        <div class="divider"></div>
 
         <p class="intro-text">Tenemos el placer de invitaros<br>a nuestra boda que tendrá lugar el</p>
 
@@ -399,7 +417,7 @@
             </div>
         </div>
 
-       
+        
 
         <div class="location-details">
             <p>en la <span class="venue-name">Iglesia de San Pedro Apóstol</span>,<br>Valoria la Buena, Valladolid</p>
@@ -420,8 +438,7 @@
 
 
 
-         <!-- Sección de la Cuenta Atrás con clase de título unificada -->
-        <h2 class="section-title">Faltan sólo</h2>
+         <h2 class="section-title">Faltan sólo</h2>
         <div class="countdown-container" id="countdown">
             <div class="countdown-box">
                 <span class="countdown-number" id="days">00</span>
@@ -444,11 +461,10 @@
         <div class="divider"></div>
 
     <section id="musica">
-        <!-- Título de sección unificado -->
         <h2 class="section-title">Nuestra Banda Sonora</h2>
         <p style="margin-bottom: 1.5rem;">Acompáñanos con la música que marcará nuestro camino. ¡Disfruta de la lista!</p>
         <iframe 
-            style="border-radius:12px" 
+            style="border-radius:12px; margin-bottom: 20px;" 
             src="https://open.spotify.com/embed/playlist/3s0kXNDASIaAtKMybEwmcZ?utm_source=generator" 
             width="100%" 
             height="352" 
@@ -457,11 +473,16 @@
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
             loading="lazy">
         </iframe>
+       <p style="margin-bottom: 1.5rem;">Además, hemos creado una lista donde podéis añadir esas canciones que creéis que no pueden faltar</p>
+        <div class="spotify-section">
+            <a href="https://open.spotify.com/playlist/1b2H4kx9GPVOxDEQpudwRH?si=541e48e675494b77&pt=02586896232d354c78c18ecdeb5abdfb" class="spotify-btn" target="_blank" rel="noopener noreferrer">
+                Añadir canciones a la lista
+            </a>
+        </div>
     </section>
 
         <div class="divider"></div>
 
-        <!-- Título de sección unificado -->
         <h2 class="section-title">¿Necesitas hotel?</h2>
         <div class="booking-section">
             <a href="https://www.booking.com/searchresults.es.html?ss=Valladolid%2C+Castilla+y+Le%C3%B3n%2C+Espa%C3%B1a&checkin=2026-08-15&checkout=2026-08-16&group_adults=2" class="booking-btn" target="_blank" rel="noopener noreferrer">
@@ -470,7 +491,6 @@
         </div>
 
         <div class="rsvp-form-container">
-            <!-- Título de sección unificado -->
             <h2 class="section-title">Confirmar Asistencia</h2>
             <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbyzyKapgSG0emJi8VO_un-BsEDsUULQmPaHTnZ30Xl6KQWJWgXCS2XPHywiJjUVLN69/exec" method="POST">
                 <div class="form-group">
@@ -520,7 +540,43 @@
                 <p>Ana</p>
                 <p><a href="tel:634716326">634 716 326</a></p>
             </div>
+
+
+    
+
+
         </div>
+        <div class="divider"></div>
+         <section id="album-fotografico">
+            
+
+
+    
+
+
+            <div class="album-subsection">
+                <h2 class="section-title">Álbum Profesional</h2>
+                <div class="album-links">
+                    <a href="ENLACE PROFESIONAL" class="album-btn" target="_blank" rel="noopener noreferrer" style="pointer-events: none; cursor: default;">
+                        Próximamente
+                    </a>
+                </div>
+            </div>
+
+
+            
+
+
+            <div class="album-subsection">
+                <h2 class="section-title">Álbum Invitados</h2>
+                <p style="margin-bottom: 0.5rem;">Aquí podrás compartir todas tus fotos</p>
+                <div class="album-links">
+                    <a href="ENLACE INVITADOS" class="album-btn" target="_blank" rel="noopener noreferrer"  style="pointer-events: none; cursor: default;">
+                        Próximamente
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </div>
 
