@@ -239,7 +239,7 @@
             border: 0;
         }
 
-        /* Estilos del enlace de alojamiento de Booking y añadir canciones */
+        /* Estilos de la sección de alojamiento y añadir canciones */
         .booking-section,
         .spotify-section,
         .album-links {
@@ -267,6 +267,63 @@
         .spotify-btn:hover,
         .album-btn:hover {
             opacity: 0.9;
+        }
+
+        /* Estilos específicos para la lista de hoteles sugeridos */
+        .hotels-list {
+            max-width: 480px;
+            margin: 35px auto 0 auto;
+            text-align: left;
+        }
+
+        .hotel-card {
+            background-color: rgba(61, 45, 38, 0.02);
+            border: 1px solid rgba(61, 45, 38, 0.1);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hotel-link-title {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .hotel-name {
+            font-family: 'Black Mango', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s ease;
+        }
+
+        .hotel-link-title:hover .hotel-name {
+            opacity: 0.8;
+        }
+
+        .hotel-info-p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            color: var(--text-color);
+        }
+
+        .hotel-info-p a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-color);
+        }
+
+        .hotel-promo {
+            font-family: 'Black Mango', serif;
+            font-size: 1.15rem;
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(61, 45, 38, 0.15);
+            color: var(--dark-brown);
         }
 
         /* Estilos específicos para la sección de Álbum Fotográfico */
@@ -401,8 +458,6 @@
 
         <h1 class="names">Pablo y Ana</h1>
         
-       
-
         <div class="divider"></div>
 
         <p class="intro-text">Tenemos el placer de invitaros<br>a nuestra boda que tendrá lugar el</p>
@@ -416,8 +471,6 @@
                 <strong>A LAS 14 HORAS</strong><br>
             </div>
         </div>
-
-        
 
         <div class="location-details">
             <p>en la <span class="venue-name">Iglesia de San Pedro Apóstol</span>,<br>Valoria la Buena, Valladolid</p>
@@ -433,10 +486,7 @@
             </iframe>
         </div>
 
-
          <div class="divider"></div>
-
-
 
          <h2 class="section-title">Faltan sólo</h2>
         <div class="countdown-container" id="countdown">
@@ -490,6 +540,44 @@
             </a>
         </div>
 
+        <!-- SECCIÓN DE HOTELES CON DESCUENTO -->
+        <div class="hotels-list">
+            
+            <div class="hotel-card">
+                <a href="https://www.hotelolid.com/" class="hotel-link-title" target="_blank" rel="noopener noreferrer">
+                    <h3 class="hotel-name">Hotel Olid ↗</h3>
+                </a>
+                <p class="hotel-info-p">Plaza San Miguel, 10 47003 VALLADOLID</p>
+                <p class="hotel-info-p">Teléfono: <a href="tel:983357200">983 35 72 00</a></p>
+                <p class="hotel-info-p">Email: <a href="mailto:reservas@hotelolid.com">reservas@hotelolid.com</a></p>
+                <p class="hotel-promo">10% Descuento sobre la tarifa web (<a href="https://www.hotelolid.com" target="_blank">www.hotelolid.com</a>)<br>Código: <strong>ANAYPABLO</strong></p>
+                <p class="hotel-info-p" style="margin-top: 5px; font-size: 1.1rem; italic;">Precio aprox. habitación doble: 90€ aplicando descuento</p>
+            </div>
+
+            <div class="hotel-card">
+                <a href="https://www.nexusvalladolid.es/" class="hotel-link-title" target="_blank" rel="noopener noreferrer">
+                    <h3 class="hotel-name">NEXUS Valladolid ↗</h3>
+                </a>
+                <p class="hotel-info-p">C/ Solanilla 13 47003 VALLADOLID</p>
+                <p class="hotel-info-p">Teléfono: <a href="tel:983213756">983 213 756</a></p>
+                <p class="hotel-info-p">Email: <a href="mailto:reservas@nexusvalladolid.es">reservas@nexusvalladolid.es</a></p>
+                <p class="hotel-promo">10% Descuento sobre la tarifa indicando boda <strong>Ana y Pablo</strong></p>
+                <p class="hotel-info-p" style="margin-top: 5px; font-size: 1.1rem; italic;">Precio aprox. habitación doble: 130€ aplicando descuento</p>
+            </div>
+
+            <div class="hotel-card">
+                <a href="https://www.hotelmozart.net/" class="hotel-link-title" target="_blank" rel="noopener noreferrer">
+                    <h3 class="hotel-name">Hotel Mozart *** ↗</h3>
+                </a>
+                <p class="hotel-info-p">C/ Menéndez Pelayo nº7 47001 VALLADOLID</p>
+                <p class="hotel-info-p">Teléfono: <a href="tel:983297777">983 297 777</a></p>
+                <p class="hotel-info-p">Email: <a href="mailto:hotelmozart@hotelmozart.net">hotelmozart@hotelmozart.net</a></p>
+                <p class="hotel-promo">Precios especiales indicando boda <strong>Ana y Pablo</strong></p>
+                <p class="hotel-info-p" style="margin-top: 5px; font-size: 1.1rem; italic;">Precio aprox. habitación doble: 110€</p>
+            </div>
+
+        </div>
+
         <div class="rsvp-form-container">
             <h2 class="section-title">Confirmar Asistencia</h2>
             <form id="rsvpForm" action="https://script.google.com/macros/s/AKfycbyzyKapgSG0emJi8VO_un-BsEDsUULQmPaHTnZ30Xl6KQWJWgXCS2XPHywiJjUVLN69/exec" method="POST">
@@ -523,6 +611,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="cigar">¿Quieres un puro?</label>
+                    <div class="select-wrapper">
+                        <select id="cigar" name="cigar" required>
+                            <option value="" disabled selected hidden>Selecciona una opción...</option>
+                            <option value="si">Sí, por favor</option>
+                            <option value="no">No, gracias</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="allergies">Intolerancias o Alergias</label>
                     <textarea id="allergies" name="allergies" rows="2" placeholder="Ej. Celíaco, alergia a los frutos secos... (Si no tienes, deja en blanco)"></textarea>
                 </div>
@@ -540,20 +639,11 @@
                 <p>Ana</p>
                 <p><a href="tel:634716326">634 716 326</a></p>
             </div>
-
-
-    
-
-
         </div>
+        
         <div class="divider"></div>
-         <section id="album-fotografico">
-            
-
-
-    
-
-
+        
+        <section id="album-fotografico">
             <div class="album-subsection">
                 <h2 class="section-title">Álbum Profesional</h2>
                 <div class="album-links">
@@ -562,10 +652,6 @@
                     </a>
                 </div>
             </div>
-
-
-            
-
 
             <div class="album-subsection">
                 <h2 class="section-title">Álbum Invitados</h2>
